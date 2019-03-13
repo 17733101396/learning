@@ -1,0 +1,5 @@
+com\starnet\usermanager\service\SysUserServiceImpl.class
+com\starnet\usermanager\service\ISysUserService.class
+com\starnet\usermanager\model\SysUser.class
+com\starnet\usermanager\controller\SysUserController.class
+com\starnet\usermanager\mapper\SysUserMapper.class

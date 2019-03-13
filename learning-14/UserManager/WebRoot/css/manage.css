@@ -1,0 +1,28 @@
+* {
+  border: 0;          /*设置边框线条宽度为0*/
+  margin: 0;         /*设置元素边距间隔宽度为0*/
+  padding: 0;       /*设置元素内部填充度为0px*/
+  background-color:transparent; 
+  outline: 0;
+}
+
+button:active
+{
+	position:relative;
+	top:2px;
+}
+
+button:hover
+{
+	filter:drop-shadow(0 0 0 black);
+}
+
+.glyphicon.glyphicon-cog
+{
+	animation:xz 5s linear infinite ;
+}
+@keyframes xz{
+	from  {transform:rotate(0deg);}
+	to{transform:rotate(360deg);}
+ 
+}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--绑定SongMapper接口-->
+<mapper namespace="com.starnet.musicmanage.mapper.SongMapper">
+    <!-- 自定义返回结果集 -->
+    <resultMap id="songMap" type="com.starnet.musicmanage.model.Song">
+        <id property="songID" column="songID" javaType="int"></id>
+        <result property="songName" column="songName" javaType="String"></result>
+        <result property="introduction" column="introduction" javaType="String"></result>
+        <result property="singer" column="singer" javaType="String"></result>
+    </resultMap>
+
+    <!-- 定义 SQL 语句，其中 id 需要和接口中的方法名一致 -->
+    <!-- useGeneratedKeys：实现自动生成主键 -->
+    <!-- keyProperty： 唯一标记一个属性 -->
+    <!-- parameterType 指明查询时使用的参数类型，resultType 指明查询返回的结果集类型 -->
+    <!-- 如未为 Java Bean 起类别名，resultType="com.starnet.musicmanage.SysUser" -->
+    <!-- 使用resultType时，一定要保证，你属性名与字段名相同；如果不相同，就使用resultMap -->
+    
+    <!-- 根据歌曲id列表查询歌曲 -->
+    <select id="selectSongById" resultMap="songMap" parameterType="java.util.List">
+        select * from song where songID in(<foreach collection="list"  item="id" separator=",">#{id}</foreach>)
+    </select>
+    
+    <!-- 查询所有歌曲 -->
+    <select id="selectAllSong" resultMap="songMap" >
+        select * from song
+    </select>
+    
+    <!-- 插入歌曲 -->
+    <insert id="insertSong" useGeneratedKeys="true" keyProperty="songID" parameterType="Song">
+        insert into song (songName,introduction,singer) values
+        (#{songName},#{introduction},#{singer})
+    </insert>
+    <!-- 更新歌曲 -->
+    <update id="updateSong"  parameterType="Song">
+        update song set
+        songName=#{songName},introduction=#{introduction},singer=#{singer} where
+        songID=#{songID}
+    </update>
+    <!-- 删除歌曲 -->
+    <!--注意：>#{id}<内不能有空格<-->
+    <delete id="deleteSong" parameterType="java.util.List">
+        delete from song where songID in 
+        (<foreach collection="list"  item="id" separator=",">#{id}</foreach>)
+    </delete>
+
+</mapper>
+

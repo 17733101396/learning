@@ -1,0 +1,41 @@
+﻿<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="css/login.css" type="text/css"/>
+<meta charset="utf-8"/>
+
+<script src="js/polyfill.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.placeholder.min.js"></script>
+<script src="js/submitform.js?version=3"></script>
+<script src="js/login.js?version=2"></script>
+<title>登录</title>
+</head>
+<body>
+  <div class="contain">
+    <div class="logintop"></div>
+    <div class="loginbody">
+      <div class="logindiv">
+        <form id="loginform" class="loginform" name="loginform">
+          <ul>
+            <li>
+              <input type="text" class="loginuser" id="username" value="" placeholder=
+			      "输入账号"  maxlength="15" errormsg="用户名长度在5-15位之间">
+            </li>
+            <li>
+              <input type="password" class="loginpwd" id="password" value="" placeholder=
+                  "输入密码"  maxlength="16" errormsg="密码长度在6-16位之间">
+            </li>
+            <li>
+              <input type="button" class="loginbtn" id="submit" value="登录" >
+            </li>
+          </ul>
+        </form>
+      </div>
+    </div>
+    <div class="loginbottom">
+      版权所有    2019    Star-net
+    </div>
+  </div>
+</body>
+</html>

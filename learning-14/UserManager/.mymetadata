@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="MusicManage"
+  id="myeclipse.1548142705039"
+  context-root="/MusicManage"
+  j2ee-spec="5.0"
+  archive="MusicManage.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
