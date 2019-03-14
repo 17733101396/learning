@@ -1,0 +1,126 @@
+* {
+  font-size: 9pt;    /*璁剧疆瀛椾綋澶у皬*/
+  border: 0;          /*璁剧疆杈规绾挎潯瀹藉害涓�*/
+  margin: 0;         /*璁剧疆鍏冪礌杈硅窛闂撮殧瀹藉害涓�*/
+  padding: 0;       /*璁剧疆鍏冪礌鍐呴儴濉厖搴︿负0px*/
+  font-family: '寰蒋闆呴粦';    /*璁剧疆瀛椾綋鏍峰紡*/
+  overflow:hidden;            /*榛樿婧㈠嚭闅愯棌*/
+  height:100%; 
+}
+
+body
+{
+  /*璁剧疆鑳屾櫙鑹茶皟涓�瀹濈煶钃濊壊,濡傛灉姝ゅ涓嶈缃細鍑虹幇鑳屾櫙鍥剧墖鍥涘懆鐣欑櫧鏄惧緱鏈夌偣涓嶅崗璋�/
+  background-color: #1c77ac; 
+  /*璁剧疆鑳屾櫙鍥剧墖*/
+  background-image: url(../images/login/light.png);
+  /*鑳屾櫙鍥剧墖涓嶅钩閾洪噸澶嶅憟鐜�/
+  background-repeat: no-repeat;
+  /*鑳屾櫙鍥剧墖浣嶇疆涓烘按骞冲眳涓�鍨傜洿灞呬腑*/
+  background-position: center center;
+  height:100%; 
+}
+
+.contain
+{
+  /*璁剧疆鑳屾櫙鍥剧墖*/
+  background-image: url(../images/login/loginbg3.png);
+  /*鑳屾櫙鍥剧墖涓嶅钩閾洪噸澶嶅憟鐜�/
+  background-repeat: no-repeat;
+  /*鑳屾櫙鍥剧墖浣嶇疆涓烘按骞冲眳涓�鍨傜洿灞呬腑*/
+  background-position: center center;
+  /*璁剧疆瀹瑰櫒鐨勫搴﹀拰楂樺害锛岄殢娴忚鍣ㄥぇ灏忚嚜鐒舵墿灞�/
+  width: 100%; height: 100%;
+  /*闅愯棌宸﹀彸婊氬姩鏉�*/
+}
+
+.logintop
+{
+  width: 100%; height: 10%;
+}
+
+.loginbody
+{
+  width: 100%; height: 80%;
+  position: relative;/*涓哄瓙鍏冪礌瀵圭埗鍏冪礌缁濆瀹氫綅鍑嗗*/
+}
+
+.logindiv
+{
+  background-image: url(../images/login/logininfo3.png);
+  background-repeat: no-repeat ;
+  height: 373px; 
+  width: 692px;
+  /*鐩稿鐖跺厓绱犲眳涓�*/
+  position: absolute;
+  margin: auto;
+  left: 0; right: 0;
+  top: 0;  bottom: 0;
+}
+
+.loginform
+{ 
+  /*绂籰ogindiv鐨勯《閮ㄤ綅缃櫨鍒嗘瘮闂撮殧*/
+  margin-top: 10%;
+  /*绂籰ogindiv鐨勫乏杈逛綅缃櫨鍒嗘瘮闂撮殧*/
+  margin-left: 38%;
+  height: 250px;
+  width: 400px;
+}
+
+/*鍛婅瘔娴忚鍣ㄥ湪loginform绫绘牱寮忎笅鐨剈l鏍囩锛岄噰鐢ㄥ涓嬫牱寮�*/
+.login ul
+{
+  list-style: none;  /*鍘婚櫎鍒惰〃绗︾殑鍦嗙偣*/
+}
+
+/*鍛婅瘔娴忚鍣ㄥ湪loginform绫绘牱寮忎笅鐨剈l鏍囩涓嬬殑li鏍囩锛岄噰鐢ㄥ涓嬫牱寮�*/
+.loginform ul li
+{ 
+  list-style: none;  /*鍘婚櫎鍒惰〃绗︾殑鍦嗙偣*/
+  width: 100%; height: 48px;
+  margin-top:30px;
+}
+
+.loginuser
+{
+  width: 299px; height: 48px;line-height:48px;
+  padding-left: 44px;
+  background: url(../images/login/loginuser.png) no-repeat;
+  font-size: 14px;
+  color: #90a2bc;
+}
+
+.loginpwd
+{
+  width: 299px; height: 48px;line-height:48px;
+  padding-left: 44px;
+  background: url(../images/login/loginpassword.png) no-repeat;
+  font-size: 14px;
+  color: #90a2bc;
+}
+
+.loginbtn
+{
+  width: 111px; height: 35px;
+  margin-top: 8px;
+  margin-left: 8px;
+  background: url(../images/login/buttonbg.png) repeat-x;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  line-height: 35px;
+}
+
+.loginbottom
+{
+  width: 100%; height: 10%;
+  text-align: center;  /*鏂囨湰灞呬腑*/
+}
+
+
+
+
+
+

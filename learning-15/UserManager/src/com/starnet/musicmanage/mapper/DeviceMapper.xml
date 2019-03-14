@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--绑定DeviceMApper接口-->
+<mapper namespace="com.starnet.musicmanage.mapper.DeviceMapper">
+    <!-- 自定义返回结果集 -->
+    <resultMap id="deviceMap" type="com.starnet.musicmanage.model.Device">
+        <id property="id" column="id" javaType="int"></id>
+        <result property="deviceID" column="deviceID" javaType="String"></result>
+        <result property="deviceName" column="deviceName" javaType="String"></result>
+        <result property="deviceType" column="deviceType" javaType="int"></result>
+        <result property="type" column="type" javaType="int"></result>
+        <result property="time" column="time" javaType="String"></result>
+        <result property="adList" column="adList" javaType="String"></result>
+        <result property="songList" column="songList" javaType="String"></result>
+    </resultMap>
+
+    <!-- 定义 SQL 语句，其中 id 需要和接口中的方法名一致 -->
+    <!-- useGeneratedKeys：实现自动生成主键 -->
+    <!-- keyProperty： 唯一标记一个属性 -->
+    <!-- parameterType 指明查询时使用的参数类型，resultType 指明查询返回的结果集类型 -->
+    <!-- 如未为 Java Bean 起类别名，resultType="com.starnet.musicmanage.SysUser" -->
+    <!-- 使用resultType时，一定要保证，你属性名与字段名相同；如果不相同，就使用resultMap -->
+    
+    <!-- 更新设备状态为上线 -->
+    <update id="loginUpdateType" parameterType="Device">
+        update device set type=1,time=#{time} where deviceID=#{deviceID}
+    </update>
+    
+    <!-- 更新设备状态为下线 -->
+    <update id="logoutUpdateType" parameterType="Device">
+        update device set type=0,time=#{time} where deviceID=#{deviceID}
+    </update>
+    
+    <!--根据设备id查询设备广告列表 -->
+    <select id="selectAdListByDeviceID"  resultType="String" parameterType="String">
+        select adList from device where deviceID=#{deviceID}
+    </select>
+    
+    <!--根据设备id查询设备歌曲列表 -->
+    <select id="selectSongListByDeviceID"  resultType="String" parameterType="String">
+        select songList from device where deviceID=#{deviceID}
+    </select>
+    
+    <!-- 根据设备id更新设备列表 -->
+    <update id="updateDeviceSongList"  parameterType="Device">
+        update device set songList=#{songList} where deviceID=#{deviceID} 
+    </update>
+    
+    
+    <!-- 查询所有设备 -->
+    <select id="selectAllDevice" resultMap="deviceMap" parameterType="int">
+        select * from device where deviceType=#{deviceType}
+    </select>
+    <!-- 新增设备 -->
+    <insert id="insertDevice" useGeneratedKeys="true" keyProperty="id" parameterType="Device">
+        insert into device (deviceID,deviceName,deviceType,type,time,adList,songList) values
+        (#{deviceID},#{deviceName},#{deviceType},#{type},#{time},#{adList},#{songList})
+    </insert>
+    <!-- 更新设备 -->
+    <update id="updateDevice"  parameterType="Device">
+        update device set
+        deviceID=#{deviceID},deviceName=#{deviceName},deviceType=#{deviceType},type=#{type},time=#{time},adList=#{adList},songList=#{songList} 
+        where id=#{id} 
+    </update>
+    <!-- 删除设备 -->
+    <!--注意：>#{id}<内不能有空格<-->
+    <delete id="deleteDevice" parameterType="java.util.List">
+        delete from device where id in 
+        (<foreach collection="list"  item="id" separator=",">#{id}</foreach>)
+    </delete>
+
+</mapper>

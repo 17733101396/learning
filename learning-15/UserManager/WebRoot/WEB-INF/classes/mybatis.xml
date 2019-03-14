@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 为JavaBean起类别名 -->
+	<typeAliases>
+		<!-- 指定一个包名起别名，将包内的 Java 类的类名作为类的类别名 -->
+		<package name="com.starnet.musicmanage.model" />
+	</typeAliases>
+
+	
+	<!--通过 resource 加载单个映射文件-->
+	<mappers>
+      <mapper resource="SysUserMapper.xml"/> 
+      <mapper resource="DeviceMapper.xml"/> 
+      <mapper resource="SongMapper.xml"/> 
+      <mapper resource="ADMapper.xml"/> 
+    </mappers>
+
+</configuration>
