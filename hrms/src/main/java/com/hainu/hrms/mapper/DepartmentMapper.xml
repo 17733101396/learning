@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hainu.hrms.mapper.DepartmentMapper">
+
+	<resultMap type="Department" id="DepartmentResult">
+		<id property="id" column="dept_id" />
+		<result property="name" column="dept_name" />
+		<result property="description" column="dept_description" />
+	</resultMap>
+
+	<select id="selectDepartments"  resultMap="DepartmentResult">
+		select * from dept_tb
+	</select>
+	
+	<delete id="deleteDepartments" parameterType="java.util.List">
+		delete from dept_tb where
+		dept_id in 
+        (<foreach collection="list"  item="id" separator=",">#{id}</foreach>)
+	</delete>
+	
+	<insert id="addDepartment" parameterType="Department" useGeneratedKeys="true" keyProperty="dept_id">
+		insert into dept_tb(dept_name,dept_description)
+		values(#{name},#{description})
+	</insert>
+
+	<update id="updateDepartment" parameterType="Department">
+		update dept_tb set
+		dept_name=#{name},dept_description=#{description} where dept_id=#{id}
+	</update>
+
+	
+</mapper>

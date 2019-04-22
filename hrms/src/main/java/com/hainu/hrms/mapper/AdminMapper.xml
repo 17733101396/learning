@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hainu.hrms.mapper.AdminMapper">
+
+    <resultMap type="Admin" id="AdminResult">
+        <id property="id" column="admin_id" />
+        <result property="username" column="username" />
+        <result property="password" column="password" />
+        <result property="role_name" column="role_name" />
+    </resultMap>
+
+    <select id="login" parameterType="Admin" resultMap="AdminResult">
+        select * from
+        admin_tb where username=#{username} and password=#{password} limit 1
+    </select>
+    
+    <select id="selectAdmins" resultMap="AdminResult">
+        select * from admin_tb
+    </select>
+    
+    <delete id="deleteAdmins" parameterType="java.util.List">
+        delete from admin_tb where admin_id in 
+        (<foreach collection="list"  item="id" separator=",">#{id}</foreach>)
+    </delete>
+    
+    
+    <insert id="addAdmin" parameterType="Admin" useGeneratedKeys="true" keyProperty="admin_id">
+        insert into admin_tb(username,password,role_name)
+        values(#{username},#{password},#{role_name})
+    </insert>
+
+    <update id="updateAdmin" parameterType="Admin">
+        update admin_tb set
+        username=#{username},password=#{password},role_name=#{role_name} where admin_id=#{id}
+    </update>
+    
+
+</mapper>

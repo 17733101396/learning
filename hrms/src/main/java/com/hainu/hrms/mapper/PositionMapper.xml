@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hainu.hrms.mapper.PositionMapper">
+
+	<resultMap type="Position" id="PositionResult">
+		<id property="id" column="pos_id" />
+		<result property="name" column="pos_name" />
+		<result property="description" column="pos_description" />
+	</resultMap>
+
+	<select id="selectPositions"  resultMap="PositionResult">
+		select * from position_tb
+	</select>
+	
+	<delete id="deletePositions" parameterType="java.util.List">
+		delete from position_tb where
+		pos_id in 
+        (<foreach collection="list"  item="id" separator=",">#{id}</foreach>)
+	</delete>
+	
+	<insert id="addPosition" parameterType="Position" useGeneratedKeys="true" keyProperty="pos_id">
+		insert into position_tb(pos_name,pos_description)
+        values(#{name},#{description})
+	</insert>
+
+	<update id="updatePosition" parameterType="Position">
+		update position_tb set
+        pos_name=#{name},pos_description=#{description} where pos_id=#{id}
+	</update>
+
+	
+</mapper>
